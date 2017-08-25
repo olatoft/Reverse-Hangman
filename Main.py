@@ -2,7 +2,12 @@ import Words
 
 
 def get_word_length():
-    word_length = int(input('Kor mange bokstavar er det i ordet?\n'))
+    word_length = 0
+    while word_length == 0:
+        try:
+            word_length = int(input('Kor mange bokstavar er det i ordet?\n'))
+        except:
+            print('Du må skrive inn eit tal. Prøv igjen.\n')
     return word_length
 
 
