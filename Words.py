@@ -65,4 +65,5 @@ class Words():
 
     def get_letter_to_guess(self):
         self.get_frequency()
-        return self.alphabeth.pop(self.frequency_list.index(max(self.frequency_list)))
+        return self.alphabeth.pop(self.frequency_list.index(
+            max(self.frequency_list)))
