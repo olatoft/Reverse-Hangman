@@ -12,11 +12,16 @@ def get_word_length():
 
 
 def get_if_letter_in_word(letter):
-    answer = input('\nInneheldt ordet bokstaven ' + letter + '? Ja eller nei?\n')
-    if (answer == 'Ja' or answer == 'ja'):
-        return True
-    if (answer == 'Nei' or answer == 'nei'):
-        return False
+    answer = ''
+    while answer == '':
+        answer = input('\nInneheldt ordet bokstaven ' + letter + '? Ja eller nei?\n')
+        if (answer == 'Ja') or (answer == 'ja'):
+            return True
+        elif (answer == 'Nei') or (answer == 'nei'):
+            return False
+        else:
+            answer = ''
+            print('Du må skrive enten ja eller nei')
 
 
 def get_letter_pos_list(letter):
