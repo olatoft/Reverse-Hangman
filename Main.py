@@ -61,9 +61,12 @@ def loop(words):
         else:
             words.set_words_without_letter(letter)
         if len(words.get_words()) == 1:
+            print('\nOrdet er ' + words.get_words()[0])
+            break
+        elif len(words.get_words()) == 0:
+            print('\nOrdet er ikkje i ordboka')
             break
         print(words.get_words())
-    print('\nOrdet er ' + words.get_words()[0])
 
 
 def main():
