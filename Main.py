@@ -24,12 +24,26 @@ def get_if_letter_in_word(letter):
             print('Du må skrive enten ja eller nei')
 
 
-def get_letter_pos_list(letter):
-    letter_pos_list = input(
-        'Skriv inn nummer på posisjonar i ordet der bokstaven ' +
-        letter + ' er med:\n').split()
-    for i in range(len(letter_pos_list)):
-        letter_pos_list[i] = int(letter_pos_list[i]) - 1
+def get_letter_pos_list(letter, words):
+    letter_pos_list = ''
+    while letter_pos_list == '':
+        try:
+            while letter_pos_list == '':
+                letter_pos_list = input(
+                    'Skriv inn nummer på posisjonar i ordet der bokstaven ' +
+                    letter + ' er med:\n').split()
+                if len(letter_pos_list) == 0:
+                    letter_pos_list = ''
+                    print('Du må skrive inn minst 1 tal. Prøv igjen\n')
+                for i in range(len(letter_pos_list)):
+                    letter_pos_list[i] = int(letter_pos_list[i]) - 1
+                if (min(letter_pos_list) < 0) or (
+                    (max(letter_pos_list) + 1) > words.word_length):
+                    letter_pos_list = ''
+                    print('Tal må vere større enn null og mindre enn ordlengde.\n')
+        except:
+            letter_pos_list = ''
+            print('Du må skrive inn tal. Prøv igjen.\n')
     return letter_pos_list
 
 
@@ -38,7 +52,7 @@ def loop(words):
         letter = words.get_letter_to_guess()
         answer = get_if_letter_in_word(letter)
         if answer:
-            letter_pos_list = get_letter_pos_list(letter)
+            letter_pos_list = get_letter_pos_list(letter, words)
             for element in letter_pos_list:
                 words.set_words_with_letter_in_pos(letter, element)
             for i in range(words.word_length):
