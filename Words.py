@@ -67,4 +67,3 @@ class Words():
         self.get_frequency()
         return self.alphabeth.pop(self.frequency_list.index(
             max(self.frequency_list)))
-

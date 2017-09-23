@@ -14,14 +14,15 @@ def get_word_length():
 def get_if_letter_in_word(letter):
     answer = ''
     while answer == '':
-        answer = input('\nInneheldt ordet bokstaven ' + letter + '? Ja eller nei?\n')
+        answer = input('\nInneheldt ordet bokstaven ' + letter +
+                       '? Ja eller nei?\n')
         if (answer == 'Ja') or (answer == 'ja'):
             return True
         elif (answer == 'Nei') or (answer == 'nei'):
             return False
         else:
             answer = ''
-            print('Du må skrive enten ja eller nei')
+            print('Du må skrive enten ja eller nei\n')
 
 
 def get_letter_pos_list(letter, words):
@@ -38,7 +39,7 @@ def get_letter_pos_list(letter, words):
                 for i in range(len(letter_pos_list)):
                     letter_pos_list[i] = int(letter_pos_list[i]) - 1
                 if (min(letter_pos_list) < 0) or (
-                    (max(letter_pos_list) + 1) > words.word_length):
+                   (max(letter_pos_list) + 1) > words.word_length):
                     letter_pos_list = ''
                     print('Tal må vere større enn null og mindre enn ordlengde.\n')
         except:
