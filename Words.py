@@ -49,19 +49,22 @@ class Words():
                 if self.alphabeth[i] in word:
                     frequency_list[i] += 1
         self.frequency_list = frequency_list
+        self.delete_noninformative_letters()
 
-        # Delete letters present in all or no words
-        # since they give no information.
+    # Delete letters present in all or no words
+    # since they give no information.
+    def delete_noninformative_letters(self):
         deletion_list = []
         for i in range(len(self.alphabeth)):
             if (self.frequency_list[i] == len(self.words)) or (
                     self.frequency_list[i] == 0):
                 deletion_list.append(i)
+
         for element in reversed(deletion_list):
             del self.frequency_list[element]
             del self.alphabeth[element]
-        print(self.frequency_list)
 
+        print(self.frequency_list)
 
     def get_letter_to_guess(self):
         self.get_frequency()
