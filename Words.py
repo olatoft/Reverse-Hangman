@@ -44,24 +44,24 @@ class Words():
 
     def get_frequency(self):
         frequency_list = [0 for i in range(len(self.alphabeth))]
-        # frequency_percent_list = []
         for i in range(len(self.alphabeth)):
             for word in self.words:
                 if self.alphabeth[i] in word:
                     frequency_list[i] += 1
         self.frequency_list = frequency_list
+
+        # Delete letters present in all or no words
+        # since they give no information.
         deletion_list = []
         for i in range(len(self.alphabeth)):
-            if self.frequency_list[i] == len(self.words):
+            if (self.frequency_list[i] == len(self.words)) or (
+                    self.frequency_list[i] == 0):
                 deletion_list.append(i)
         for element in reversed(deletion_list):
             del self.frequency_list[element]
             del self.alphabeth[element]
+        print(self.frequency_list)
 
-        # for frequency in frequency_list:
-            # frequency_percent_list.append(
-                # round((frequency / len(words)) * 100, 1))
-        # return frequency_percent_list
 
     def get_letter_to_guess(self):
         self.get_frequency()

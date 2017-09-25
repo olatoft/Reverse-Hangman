@@ -74,11 +74,7 @@ def main():
     words = Words.Words()
     words.word_length = get_word_length()
     words.set_words_with_length(words.word_length)
-    # print(words.get_words())
     loop(words)
-
-    # for i in range(len(letters)):
-        # print(letters[i] + ': ' + str(frequencies[i]).rjust(5))
 
 
 if __name__ == '__main__':
