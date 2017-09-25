@@ -54,15 +54,15 @@ class Words():
     # Delete letters present in all or no words
     # since they give no information.
     def delete_noninformative_letters(self):
-        deletion_list = []
+        frequency_list = []
+        alphabeth = []
         for i in range(len(self.alphabeth)):
-            if (self.frequency_list[i] == len(self.words)) or (
-                    self.frequency_list[i] == 0):
-                deletion_list.append(i)
-
-        for element in reversed(deletion_list):
-            del self.frequency_list[element]
-            del self.alphabeth[element]
+            if not ((self.frequency_list[i] == len(self.words)) or (
+                    self.frequency_list[i] == 0)):
+                frequency_list.append(self.frequency_list[i])
+                alphabeth.append(self.alphabeth[i])
+        self.frequency_list = frequency_list
+        self.alphabeth = alphabeth
 
         print(self.frequency_list)
 
